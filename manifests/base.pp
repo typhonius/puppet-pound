@@ -5,11 +5,10 @@
 # Please refer to Class['pound'].
 #
 class pound::base {
-#includes
+
     include concat::setup
-    #
     concat {
-        '/etc/pound/pound.cfg' :
+        "${pound::pound_config}" :
             owner => root,
             group => root,
             mode => '0644'
@@ -26,7 +25,7 @@ class pound::base {
     }
     concat::fragment {
         'pound_header' :
-            target => '/etc/pound/pound.cfg',
+            target => "${pound::pound_config}",
             content => template('pound/header.cfg.erb'),
             order => 01,
     }

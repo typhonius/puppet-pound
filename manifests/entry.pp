@@ -12,7 +12,7 @@ define pound::entry (
 
     concat::fragment {
         "pound_entry-${name}" :
-            target => '/etc/pound/pound.cfg',
+            target => "${pound::pound_config}",
             content => template('pound/entry.cfg.erb'),
             order => 30,
             notify  => Service['pound'],

@@ -3,8 +3,8 @@
 #
 ## global options:
 ###
-User            "www-data"
-Group           "www-data"
+User            "<%=scope.lookupvar('pound::pound_user') %>"
+Group           "<%=scope.lookupvar('pound::pound_user') %>"
 #RootJail       "/chroot/pound"
 
 
