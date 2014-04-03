@@ -3,7 +3,7 @@ Pound reverse proxy module
 
 Status
 ------
-This module is in a fairly basic state right now, this is my first attempt at writing a real puppet module so please review the code before you put it into action. My goal is to support all features of pound in as clean and reusable a way as possible. 
+This module is a fork of mrintegrity/puppet-pound that seeks to allow installation and configuration of pound on both debian and redhat based architecture.
 
 Puppet-pound is heavilly inspired by the [CampToCamp bind] [1] module.
 
@@ -16,6 +16,7 @@ Todo
 * Rework the module a bit to follow best practice
 * Add support for changing Global Directives (currently static defaults)
 * Some kind of support for managing the service with the poundctl command might be good to have (maybe even essential)
+* Add certificate support for SSL listeners
 
 Usage
 -----
