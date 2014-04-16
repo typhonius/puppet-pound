@@ -11,8 +11,6 @@ define pound::entry (
     $header_remove   = undef,
   ) {
 
-    include pound
-
     concat::fragment {
         "pound_entry-${name}" :
             target => "${pound::pound_config}",

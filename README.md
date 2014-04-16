@@ -14,13 +14,26 @@ Manage a single /etc/pound/pound.cfg configuration, add entries for HTTP listene
 Todo
 ----
 * Rework the module a bit to follow best practice
-* Add support for changing Global Directives (currently static defaults)
 * Some kind of support for managing the service with the poundctl command might be good to have (maybe even essential)
 
 Usage
 -----
 ``` puppet
 #node.pp
+    class { 'pound':
+      log_level  => 2,
+      alive_time => 300,
+    }
+    pound::entry {
+      'ssl' :
+        service => false,
+        listen_ip => '0.0.0.0',
+        listen_port => '443',
+        listen_protocol => 'ListenHTTPS',
+        header_remove => 'X-Forwarded-Proto',
+        header_add => 'X-Forwarded-Proto: https',
+        cert => '/etc/ssl/certs/webserver.pem',
+    }
     pound::entry {
         'test' :
             listen_ip => '30.40.50.60',
@@ -28,7 +41,7 @@ Usage
             listen_protocol => 'ListenHTTP',
     }
     pound::entry {
-        'test' :
+        'test1' :
             listen_ip => '0.0.0.0',
             listen_port => '8000',
             listen_protocol => 'ListenHTTP',

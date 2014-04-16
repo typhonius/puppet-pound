@@ -15,12 +15,12 @@ Group           "<%=scope.lookupvar('pound::pound_user') %>"
 ##      2       extended
 ##      3       Apache-style (common log format)
 ###
-LogLevel        3
+LogLevel       <%=scope.lookupvar('pound::log_level') %> 
 
 ##
 ## check backend every X secs:
 ###
-Alive           30
+Alive          <%=scope.lookupvar('pound::alive_time') %>
 
 ##
 ## use hardware-accelleration card supported by openssl(1):
@@ -30,7 +30,7 @@ Alive           30
 ##
 ## poundctl control socket
 ###
-Control "/var/run/pound/poundctl.socket"
+Control "<%=scope.lookupvar('pound::control_socket') %>"
 
 #END OF HEADER
 
