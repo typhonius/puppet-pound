@@ -6,6 +6,9 @@ define pound::entry (
     $head_require    = undef,
     $service         = false,
     $backend         = [],
+    $cert            = '/etc/ssl/certs/pound.pem',
+    $header_add      = undef,
+    $header_remove   = undef,
   ) {
 
     include pound

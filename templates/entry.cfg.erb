@@ -5,8 +5,14 @@
 <%=listen_protocol%>
   Address <%=listen_ip%>
   Port    <%=listen_port%>
+<%- if @header_remove -%>
+  HeadRemove "<%=header_remove%>"
+<%- end -%>
+<%- if @header_add -%>
+  AddHeader "<%=header_add%>"
+<%- end -%>
   <%- if listen_protocol == "ListenHTTPS" -%>
-  Cert    "/etc/ssl/certs/server.pem"
+  Cert "<%=cert%>"
   <%- end -%>
 <%- end -%>
 <%- if @service -%>
