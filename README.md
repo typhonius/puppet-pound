@@ -15,7 +15,6 @@ Todo
 ----
 * Rework the module a bit to follow best practice
 * Some kind of support for managing the service with the poundctl command might be good to have (maybe even essential)
-* Add certificate support for SSL listeners
 
 Usage
 -----
