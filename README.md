@@ -31,7 +31,7 @@ Usage
       listen_protocol => 'ListenHTTPS',
       header_remove   => 'X-Forwarded-Proto',
       header_add      => 'X-Forwarded-Proto: https',
-      cert            => '/etc/ssl/certs/webserver.pem',
+      cert            => [ '/etc/ssl/certs/webserver.pem', '/etc/ssl/certs/pound.pem' ],
     }
     pound::entry { 'test' :
       listen_ip       => '30.40.50.60',

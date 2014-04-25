@@ -12,7 +12,13 @@
   AddHeader "<%=header_add%>"
 <%- end -%>
   <%- if listen_protocol == "ListenHTTPS" -%>
-  Cert "<%=cert%>"
+    <%- if cert.is_a? Array -%>
+      <%- @cert.each do |current_cert| -%>
+        Cert "<%= current_cert %>"
+      <%- end -%>
+    <%- else -%>
+      Cert "<%= cert %>"
+    <%- end -%>
   <%- end -%>
 <%- end -%>
 <%- if @service -%>
