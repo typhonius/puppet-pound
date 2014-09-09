@@ -9,6 +9,7 @@ define pound::entry (
     $cert            = '/etc/ssl/certs/pound.pem',
     $header_add      = undef,
     $header_remove   = undef,
+    $ciphers         = undef,
   ) {
 
     concat::fragment {
