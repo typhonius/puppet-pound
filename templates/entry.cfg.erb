@@ -19,6 +19,9 @@
     <%- else -%>
       Cert "<%= cert %>"
     <%- end -%>
+    <%- if @ciphers -%>
+      Ciphers "<%= ciphers %>"
+    <%- end -%>
   <%- end -%>
 <%- end -%>
 <%- if @service -%>
